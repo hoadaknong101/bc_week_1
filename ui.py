@@ -7,7 +7,7 @@ from core import Blockchain
 # Cấu hình trang
 st.set_page_config(page_title="Blockchain Demo Project", layout="wide")
 
-st.title("🔗 Hệ thống Blockchain")
+st.title("🔗 Build a Simple Blockchain from Scratch")
 st.markdown("### Mô phỏng Blockchain")
 
 if 'blockchain' not in st.session_state:
@@ -22,7 +22,7 @@ receiver = st.sidebar.text_input("Người nhận (Receiver)", "Thịnh")
 amount = st.sidebar.number_input("Số tiền (Amount)", min_value=0.0, value=10.0)
 
 if st.sidebar.button("Thêm Giao Dịch"):
-    blockchain.add_transaction(sender, receiver, amount)
+    blockchain.add_data(sender, receiver, amount)
     st.sidebar.success(f"Đã thêm giao dịch: {sender} -> {receiver}: {amount}")
 
 # --- SIDEBAR: ĐÀO BLOCK ---

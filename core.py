@@ -52,15 +52,15 @@ class Blockchain:
     def last_block(self) -> Block:
         return self.chain[-1]
 
-    def add_transaction(self, sender: str, recipient: str, amount: float):
-        """Thêm giao dịch vào hàng đợi."""
-        transaction = {
+    def add_data(self, sender: str, recipient: str, amount: float):
+        """Thêm dữ liệu vào hàng đợi."""
+        data = {
             'sender': sender,
             'recipient': recipient,
             'amount': amount,
-            'timestamp': time.time() # Thêm thời gian giao dịch cho chuyên nghiệp
+            'timestamp': time.time()
         }
-        self.pending_data.append(transaction)
+        self.pending_data.append(data)
 
     def proof_of_work(self, block: Block, difficulty: int) -> str:
         """
@@ -80,7 +80,7 @@ class Blockchain:
         return computed_hash
 
     def mine(self, difficulty: int = 2):
-        """Đóng gói giao dịch và đào khối mới."""
+        """Đóng gói dữ liệu và đào khối mới."""
         last_block = self.last_block
         new_block = Block(
             index=last_block.index + 1,
@@ -98,7 +98,7 @@ class Blockchain:
         # Thêm vào chuỗi
         self.chain.append(new_block)
         
-        # Reset hàng đợi giao dịch
+        # Reset hàng đợi dữ liệu
         self.pending_data = []
         
         return new_block
